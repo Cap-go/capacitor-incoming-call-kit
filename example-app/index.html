@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@capgo/capacitor-incoming-call-kit Example</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">Capgo plugin example</p>
+        <h1>Incoming call control panel</h1>
+        <p class="lead">
+          Use this demo to request permissions, trigger a sample incoming call, and inspect the events your real call
+          flow will receive from Android or iOS.
+        </p>
+      </section>
+
+      <section class="panel">
+        <div class="status-row">
+          <div>
+            <p class="label">Tracked calls</p>
+            <strong id="status-badge" class="badge">Loading</strong>
+          </div>
+          <button id="refresh-calls" class="ghost">Refresh</button>
+        </div>
+
+        <div class="actions">
+          <button id="request-permissions">Request notifications</button>
+          <button id="request-fullscreen" class="ghost">Open full-screen settings</button>
+          <button id="show-call">Show demo call</button>
+          <button id="end-all-calls" class="danger">End all calls</button>
+          <button id="get-version" class="ghost">Get plugin version</button>
+        </div>
+
+        <pre id="plugin-output">Loading plugin state...</pre>
+      </section>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
