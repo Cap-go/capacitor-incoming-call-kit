@@ -76,7 +76,7 @@ public final class IncomingCallKit: NSObject {
 
     var eventDispatcher: ((String, [String: Any]) -> Void)?
 
-    private override init() {
+    override private init() {
         super.init()
         configureProvider()
     }

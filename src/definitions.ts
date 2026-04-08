@@ -382,10 +382,7 @@ export interface IncomingCallKitPlugin {
   /**
    * Fired when a call ends through the API or a platform action.
    */
-  addListener(
-    eventName: 'callEnded',
-    listenerFunc: (event: IncomingCallEvent) => void,
-  ): Promise<PluginListenerHandle>;
+  addListener(eventName: 'callEnded', listenerFunc: (event: IncomingCallEvent) => void): Promise<PluginListenerHandle>;
 
   /**
    * Fired when an unanswered call reaches its configured timeout.

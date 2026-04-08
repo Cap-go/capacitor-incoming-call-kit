@@ -15,12 +15,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
-
 import com.getcapacitor.JSObject;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
@@ -153,10 +150,8 @@ public final class IncomingCallController {
         createNotificationChannel(context, call);
 
         final PendingIntent contentIntent = createContentIntent(context, call.getCallId());
-        final PendingIntent acceptIntent =
-            createActionIntent(context, IncomingCallActionReceiver.ACTION_ACCEPT_CALL, call.getCallId());
-        final PendingIntent declineIntent =
-            createActionIntent(context, IncomingCallActionReceiver.ACTION_DECLINE_CALL, call.getCallId());
+        final PendingIntent acceptIntent = createActionIntent(context, IncomingCallActionReceiver.ACTION_ACCEPT_CALL, call.getCallId());
+        final PendingIntent declineIntent = createActionIntent(context, IncomingCallActionReceiver.ACTION_DECLINE_CALL, call.getCallId());
 
         final NotificationCompat.Builder builder = new NotificationCompat.Builder(context, call.getChannelId())
             .setSmallIcon(android.R.drawable.sym_call_incoming)
@@ -179,8 +174,7 @@ public final class IncomingCallController {
         if (!TextUtils.isEmpty(call.getAccentColor())) {
             try {
                 builder.setColor(Color.parseColor(call.getAccentColor()));
-            } catch (IllegalArgumentException ignored) {
-            }
+            } catch (IllegalArgumentException ignored) {}
         }
 
         if (call.isShowFullScreen()) {
@@ -222,8 +216,7 @@ public final class IncomingCallController {
             return;
         }
 
-        final int importance =
-            call.isHighPriority() ? NotificationManager.IMPORTANCE_HIGH : NotificationManager.IMPORTANCE_DEFAULT;
+        final int importance = call.isHighPriority() ? NotificationManager.IMPORTANCE_HIGH : NotificationManager.IMPORTANCE_DEFAULT;
         final NotificationChannel channel = new NotificationChannel(call.getChannelId(), call.getChannelName(), importance);
         channel.setDescription("Incoming call alerts");
         channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
@@ -252,8 +245,7 @@ public final class IncomingCallController {
     private static void launchIncomingCallActivity(final Context context, final String callId) {
         try {
             context.startActivity(IncomingCallActivity.createIntent(context, callId));
-        } catch (Exception ignored) {
-        }
+        } catch (Exception ignored) {}
     }
 
     private static void launchHostApp(final Context context, final String callId) {
@@ -266,8 +258,7 @@ public final class IncomingCallController {
             launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             launchIntent.putExtra(IncomingCallActionReceiver.EXTRA_CALL_ID, callId);
             context.startActivity(launchIntent);
-        } catch (Exception ignored) {
-        }
+        } catch (Exception ignored) {}
     }
 
     private static void cancelNotification(final Context context, final IncomingCallRecord call) {

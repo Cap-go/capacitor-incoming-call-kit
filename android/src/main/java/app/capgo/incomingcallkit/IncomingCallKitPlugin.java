@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.Settings;
-
 import com.getcapacitor.JSArray;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PermissionState;
@@ -19,12 +18,7 @@ import com.getcapacitor.annotation.PermissionCallback;
 
 @CapacitorPlugin(
     name = "IncomingCallKit",
-    permissions = {
-        @Permission(
-            alias = IncomingCallKitPlugin.NOTIFICATIONS,
-            strings = { Manifest.permission.POST_NOTIFICATIONS }
-        )
-    }
+    permissions = { @Permission(alias = IncomingCallKitPlugin.NOTIFICATIONS, strings = { Manifest.permission.POST_NOTIFICATIONS }) }
 )
 public class IncomingCallKitPlugin extends Plugin {
 
@@ -158,15 +152,15 @@ public class IncomingCallKitPlugin extends Plugin {
 
     private String permissionStateToString(final PermissionState state) {
         switch (state) {
-        case GRANTED:
-            return "granted";
-        case DENIED:
-            return "denied";
-        case PROMPT_WITH_RATIONALE:
-            return "prompt-with-rationale";
-        case PROMPT:
-        default:
-            return "prompt";
+            case GRANTED:
+                return "granted";
+            case DENIED:
+                return "denied";
+            case PROMPT_WITH_RATIONALE:
+                return "prompt-with-rationale";
+            case PROMPT:
+            default:
+                return "prompt";
         }
     }
 }

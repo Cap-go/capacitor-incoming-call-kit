@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -46,12 +45,12 @@ public class IncomingCallActivity extends AppCompatActivity {
         acceptButton.setText(call.getAcceptText());
         declineButton.setText(call.getDeclineText());
 
-        acceptButton.setOnClickListener(view -> {
+        acceptButton.setOnClickListener((view) -> {
             IncomingCallController.acceptCall(this, call.getCallId(), true);
             finish();
         });
 
-        declineButton.setOnClickListener(view -> {
+        declineButton.setOnClickListener((view) -> {
             IncomingCallController.declineCall(this, call.getCallId(), false);
             finish();
         });
@@ -63,10 +62,10 @@ public class IncomingCallActivity extends AppCompatActivity {
             setTurnScreenOn(true);
         } else {
             getWindow().addFlags(
-                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
-                    | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON
-                    | WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
-                    | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
+                    WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON |
+                    WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+                    WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
             );
         }
     }
