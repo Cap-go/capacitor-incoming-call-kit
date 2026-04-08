@@ -8,7 +8,7 @@
 
 Display a native incoming-call surface in Capacitor with Android full-screen notifications and iOS CallKit.
 
-This plugin was built for teams who want something in the same space as [olarewajuakeemope/capacitor-incoming-call-kit](https://github.com/olarewajuakeemope/capacitor-incoming-call-kit), but with a smaller API, typed events, clearer platform boundaries, and documentation you can actually ship from.
+This plugin was built for teams who want something in the same space as [olarewajuakeemope/capacitor-incoming-call-kit](https://github.com/olarewajuakeemope/capacitor-incoming-call-kit), but with a small API, typed events, clearer platform boundaries, and documentation you can actually ship from.
 
 ## Documentation
 
@@ -533,7 +533,9 @@ Supported incoming call states.
 
 Construct a type with a set of properties K of type T
 
-<code>{ [P in K]: T; }</code>
+<code>{
+ [P in K]: T;
+ }</code>
 
 
 #### PermissionState
