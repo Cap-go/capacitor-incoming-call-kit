@@ -2,16 +2,13 @@ package app.capgo.incomingcallkit;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import com.getcapacitor.JSObject;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public final class IncomingCallStore {
 
@@ -22,6 +19,7 @@ public final class IncomingCallStore {
     private IncomingCallStore() {}
 
     public static final class QueuedEvent {
+
         public final String eventName;
         public final JSObject payload;
 
@@ -43,8 +41,7 @@ public final class IncomingCallStore {
 
             try {
                 calls.add(IncomingCallRecord.fromJson(object));
-            } catch (JSONException ignored) {
-            }
+            } catch (JSONException ignored) {}
         }
 
         return calls;
@@ -99,8 +96,7 @@ public final class IncomingCallStore {
             object.put("payload", new JSONObject(payload.toString()));
             events.put(object);
             writeArray(context, KEY_PENDING_EVENTS, events);
-        } catch (JSONException ignored) {
-        }
+        } catch (JSONException ignored) {}
     }
 
     public static synchronized List<QueuedEvent> drainPendingEvents(final Context context) {

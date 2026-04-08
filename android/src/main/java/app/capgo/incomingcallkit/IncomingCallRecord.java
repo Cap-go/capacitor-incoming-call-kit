@@ -1,10 +1,8 @@
 package app.capgo.incomingcallkit;
 
 import android.text.TextUtils;
-
 import com.getcapacitor.JSObject;
 import com.getcapacitor.PluginCall;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -145,8 +143,7 @@ public class IncomingCallRecord {
             json.put("highPriority", highPriority);
             json.put("extra", extra);
             json.put("state", state);
-        } catch (JSONException ignored) {
-        }
+        } catch (JSONException ignored) {}
         return json;
     }
 

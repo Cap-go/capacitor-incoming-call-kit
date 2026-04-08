@@ -86,11 +86,11 @@ public class IncomingCallKitPlugin: CAPPlugin, CAPBridgedPlugin {
         ])
     }
 
-    @objc public override func checkPermissions(_ call: CAPPluginCall) {
+    @objc override public func checkPermissions(_ call: CAPPluginCall) {
         call.resolve(implementation.permissionStatus())
     }
 
-    @objc public override func requestPermissions(_ call: CAPPluginCall) {
+    @objc override public func requestPermissions(_ call: CAPPluginCall) {
         call.resolve(implementation.permissionStatus())
     }
 
