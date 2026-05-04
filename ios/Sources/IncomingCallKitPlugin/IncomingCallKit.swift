@@ -1,5 +1,6 @@
 import CallKit
 import Foundation
+import AVFoundation
 
 struct IncomingCallRequest {
     let callId: String
@@ -286,6 +287,12 @@ extension IncomingCallKit: CXProviderDelegate {
         callIdByUUID.removeAll()
     }
 
+    public func provider(_ provider: CXProvider, perform action: CXStartCallAction) {
+        // Handle outgoing calls initiated via CXCallController
+        action.fulfill()
+        provider.reportOutgoingCall(with: action.callUUID, startedConnectingAt: Date())
+    }
+
     public func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         guard let callId = callIdByUUID[action.callUUID],
               let entry = callsById[callId] else {
@@ -305,6 +312,8 @@ extension IncomingCallKit: CXProviderDelegate {
     public func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
         guard let callId = callIdByUUID[action.callUUID],
               let entry = callsById[callId] else {
+            // Outgoing call ended from native UI — emit event so JS can clean up
+            emit(eventName: "callEnded", payload: ["source": "user", "reason": "ended"])
             action.fulfill()
             return
         }
@@ -318,5 +327,13 @@ extension IncomingCallKit: CXProviderDelegate {
             payload: makeEventPayload(for: entry, reason: reason, source: "user")
         )
         action.fulfill()
+    }
+
+    public func provider(_ provider: CXProvider, didActivate audioSession: AVAudioSession) {
+        // CallKit activated the audio session
+    }
+
+    public func provider(_ provider: CXProvider, didDeactivate audioSession: AVAudioSession) {
+        // CallKit deactivated the audio session
     }
 }
