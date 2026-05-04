@@ -353,6 +353,7 @@ extension IncomingCallKit: CXProviderDelegate {
     public func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
         guard let callId = callIdByUUID[action.callUUID],
               let entry = callsById[callId] else {
+            callIdByUUID.removeValue(forKey: action.callUUID)
             emit(eventName: "callEnded", payload: makeUnknownCallEndedPayload(callUUID: action.callUUID))
             action.fulfill()
             return
