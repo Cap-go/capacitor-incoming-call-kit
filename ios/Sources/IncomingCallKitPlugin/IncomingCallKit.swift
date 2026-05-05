@@ -203,6 +203,42 @@ public final class IncomingCallKit: NSObject {
         return payload
     }
 
+    private func makeOutgoingCallEntry(for action: CXStartCallAction) -> IncomingCallEntry {
+        let uuidString = action.callUUID.uuidString
+        let handle = action.handle.value
+        let callerName = handle.isEmpty ? uuidString : handle
+        let request = IncomingCallRequest(
+            callId: uuidString,
+            callerName: callerName,
+            handle: handle.isEmpty ? nil : handle,
+            hasVideo: action.isVideo,
+            timeoutMs: 0,
+            extra: [:],
+            supportsHolding: false,
+            supportsDTMF: false,
+            supportsGrouping: false,
+            supportsUngrouping: false,
+            handleType: action.handle.type
+        )
+        let entry = IncomingCallEntry(request: request, uuid: action.callUUID)
+        entry.state = "accepted"
+        return entry
+    }
+
+    private func makeUnknownCallEndedPayload(callUUID: UUID) -> [String: Any] {
+        [
+            "call": [
+                "callId": callUUID.uuidString,
+                "callerName": "",
+                "hasVideo": false,
+                "state": "ended",
+                "platform": "ios"
+            ],
+            "source": "user",
+            "reason": "ended"
+        ]
+    }
+
     private func scheduleTimeout(for entry: IncomingCallEntry, timeoutMs: Double) {
         guard timeoutMs > 0 else {
             return
@@ -288,9 +324,14 @@ extension IncomingCallKit: CXProviderDelegate {
     }
 
     public func provider(_ provider: CXProvider, perform action: CXStartCallAction) {
-        // Handle outgoing calls initiated via CXCallController
-        action.fulfill()
+        if callIdByUUID[action.callUUID] == nil {
+            let entry = makeOutgoingCallEntry(for: action)
+            callsById[entry.callId] = entry
+            callIdByUUID[entry.uuid] = entry.callId
+        }
+
         provider.reportOutgoingCall(with: action.callUUID, startedConnectingAt: Date())
+        action.fulfill()
     }
 
     public func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
@@ -312,8 +353,8 @@ extension IncomingCallKit: CXProviderDelegate {
     public func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
         guard let callId = callIdByUUID[action.callUUID],
               let entry = callsById[callId] else {
-            // Outgoing call ended from native UI — emit event so JS can clean up
-            emit(eventName: "callEnded", payload: ["source": "user", "reason": "ended"])
+            callIdByUUID.removeValue(forKey: action.callUUID)
+            emit(eventName: "callEnded", payload: makeUnknownCallEndedPayload(callUUID: action.callUUID))
             action.fulfill()
             return
         }
