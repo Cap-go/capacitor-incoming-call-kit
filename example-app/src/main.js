@@ -1,3 +1,5 @@
+import { CapacitorUpdater } from '@capgo/capacitor-updater';
+import { Capacitor } from '@capacitor/core';
 import './style.css';
 import { IncomingCallKit } from '@capgo/capacitor-incoming-call-kit';
 
@@ -114,3 +116,9 @@ listeners.forEach((eventName) => {
 });
 
 void refreshCalls();
+
+if (Capacitor.isNativePlatform()) {
+  CapacitorUpdater.notifyAppReady().catch((error) => {
+    console.error('Capgo notifyAppReady failed', error);
+  });
+}
