@@ -1,6 +1,6 @@
 {
   "name": "@capgo/capacitor-incoming-call-kit",
-  "version": "8.2.3",
+  "version": "8.2.4",
   "description": "Capacitor plugin for native incoming call UI with Android full-screen notifications and iOS CallKit.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
