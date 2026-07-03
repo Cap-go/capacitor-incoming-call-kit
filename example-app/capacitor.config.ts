@@ -4,7 +4,7 @@ import pkg from './package.json';
 
 const config: CapacitorConfig = {
   appId: 'app.capgo.incomingcallkit.example',
-  appName: 'Privacy Screen Example',
+  appName: '@capgo/capacitor-incoming-call-kit',
   webDir: 'dist',
   plugins: {
     SplashScreen: {
