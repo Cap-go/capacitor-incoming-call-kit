@@ -1,10 +1,27 @@
 # @capgo/capacitor-incoming-call-kit
-<a href="https://capgo.app/"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-incoming-call-kit" alt="Capgo - Instant updates for Capacitor" /></a>
+
+Show a native incoming call screen from your Capacitor app: CallKit on iOS and full-screen notifications on Android. Ring the user for VoIP calls, video calls and alerts that need an answer.
+
+<a href="https://capgo.app/?ref=plugin_incoming_call_kit"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-incoming-call-kit" alt="Capgo - Instant updates for Capacitor" /></a>
 
 <div align="center">
-  <h2><a href="https://capgo.app/?ref=plugin_incoming_call_kit"> ➡️ Get Instant updates for your App with Capgo</a></h2>
-  <h2><a href="https://capgo.app/consulting/?ref=plugin_incoming_call_kit"> Missing a feature? We’ll build the plugin for you 💪</a></h2>
+  <p><b>Capgo</b>: open-source live updates for Ionic and Capacitor apps. Ship OTA fixes and features instantly, without waiting for app store review.</p>
+  <h2><a href="https://capgo.app/register/?ref=plugin_incoming_call_kit">➡️ Get started for free</a></h2>
+  <p>14-day unlimited free trial. No credit card required</p>
+  <p><a href="https://capgo.app/consulting/?ref=plugin_incoming_call_kit">Missing a feature? We'll build the plugin for you 💪</a></p>
 </div>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Cap-go/capacitor-incoming-call-kit/main/assets/github-social-preview.png" alt="@capgo/capacitor-incoming-call-kit for Capacitor apps" width="300" />
+</p>
+
+## Key features
+
+- **Incoming call UI**: `showIncomingCall()` displays the native ringing screen.
+- **Call events**: `callAccepted`, `callDeclined`, `callEnded`, `callTimedOut` and `incomingCallDisplayed` listeners.
+- **Call tracking**: `getActiveCalls()`, `endCall()` and `endAllCalls()`.
+- **Permissions**: `checkPermissions()`, `requestPermissions()` and `requestFullScreenIntentPermission()` for Android 14 and later.
+- **Platforms**: iOS and Android. iOS uses CallKit, Android uses full-screen notifications. Web is a basic stub.
 
 Display a native incoming-call surface in Capacitor with Android full-screen notifications and iOS CallKit.
 
