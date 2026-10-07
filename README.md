@@ -1,6 +1,6 @@
 # @capgo/capacitor-incoming-call-kit
 
-Show a native incoming call screen from your Capacitor app: CallKit on iOS and full-screen notifications on Android. Ring the user for VoIP calls, video calls and alerts that need an answer.
+Show a native incoming call screen from your Capacitor app: CallKit on iOS and high-priority notifications on Android that can open a full-screen call screen. Ring the user for VoIP calls, video calls and alerts that need an answer.
 
 <a href="https://capgo.app/?ref=plugin_incoming_call_kit"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-incoming-call-kit" alt="Capgo - Instant updates for Capacitor" /></a>
 
@@ -18,10 +18,10 @@ Show a native incoming call screen from your Capacitor app: CallKit on iOS and f
 ## Key features
 
 - **Incoming call UI**: `showIncomingCall()` displays the native ringing screen.
-- **Call events**: `callAccepted`, `callDeclined`, `callEnded`, `callTimedOut` and `incomingCallDisplayed` listeners.
+- **Call events**: `callEnded`, `callTimedOut` and `incomingCallDisplayed` listeners, plus `callAccepted` and `callDeclined` on iOS and Android.
 - **Call tracking**: `getActiveCalls()`, `endCall()` and `endAllCalls()`.
 - **Permissions**: `checkPermissions()`, `requestPermissions()` and `requestFullScreenIntentPermission()` for Android 14 and later.
-- **Platforms**: iOS and Android. iOS uses CallKit, Android uses full-screen notifications. Web is a basic stub.
+- **Platforms**: iOS and Android. iOS uses CallKit. Android uses high-priority notifications that can raise a full-screen activity. Web is a basic stub.
 
 Display a native incoming-call surface in Capacitor with Android full-screen notifications and iOS CallKit.
 
