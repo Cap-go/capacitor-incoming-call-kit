@@ -2,7 +2,7 @@
 
 Show a native incoming call screen from your Capacitor app: CallKit on iOS and high-priority notifications on Android that can open a full-screen call screen. Ring the user for VoIP calls, video calls and alerts that need an answer.
 
-<a href="https://capgo.app/?ref=plugin_incoming_call_kit"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-incoming-call-kit" alt="Capgo - Instant updates for Capacitor" /></a>
+<a href="https://capgo.app/?ref=plugin_incoming_call_kit"><img src="https://capgo.app/readme-banner.svg?repo=Cap-go/capacitor-incoming-call-kit" alt="Capgo - Build Capacitor apps with AI, ship updates instantly" /></a>
 
 <div align="center">
   <p><b>Capgo</b>: push fixes to your Capacitor users in minutes, build signed iOS and Android apps without a Mac, and roll back in one click.</p>
@@ -10,6 +10,8 @@ Show a native incoming call screen from your Capacitor app: CallKit on iOS and h
   <p>14-day unlimited free trial. No credit card required</p>
   <p><a href="https://capgo.app/consulting/?ref=plugin_incoming_call_kit">Missing a feature? We'll build the plugin for you 💪</a></p>
 </div>
+
+> 🤖 **Building with an AI coding agent?** Install [Capgo skills](https://capgo.app/skills/?ref=plugin_incoming_call_kit) so Claude Code, Codex, Cursor, Copilot, or Gemini CLI know how to install and use `@capgo/capacitor-incoming-call-kit` in your Capacitor app: `npx skills add Cap-go/capgo-skills`. Then ask your agent: *"Add @capgo/capacitor-incoming-call-kit to my Capacitor app and wire it up."* [Agent setup guides](https://capgo.app/agents/?ref=plugin_incoming_call_kit) · [Hosted MCP](https://capgo.app/docs/ai/mcp/?ref=plugin_incoming_call_kit)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Cap-go/capacitor-incoming-call-kit/main/assets/github-social-preview.png" alt="@capgo/capacitor-incoming-call-kit for Capacitor apps" width="300" />
