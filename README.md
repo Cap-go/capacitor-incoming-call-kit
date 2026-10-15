@@ -8,7 +8,6 @@ Show a native incoming call screen from your Capacitor app: CallKit on iOS and h
   <p><b>Capgo</b>: push fixes to your Capacitor users in minutes, build signed iOS and Android apps without a Mac, and roll back in one click.</p>
   <h2><a href="https://capgo.app/register/?ref=plugin_incoming_call_kit">➡️ Get started for free</a></h2>
   <p>14-day unlimited free trial. No credit card required</p>
-  <p><a href="https://capgo.app/consulting/?ref=plugin_incoming_call_kit">Missing a feature? We'll build the plugin for you 💪</a></p>
 </div>
 
 > 🤖 **Building with an AI coding agent?** Install [Capgo skills](https://capgo.app/skills/?ref=plugin_incoming_call_kit) so Claude Code, Codex, Cursor, Copilot, or Gemini CLI know how to install and use `@capgo/capacitor-incoming-call-kit` in your Capacitor app: `npx skills add Cap-go/capgo-skills`. Then ask your agent: *"Add @capgo/capacitor-incoming-call-kit to my Capacitor app and wire it up."* [Agent setup guides](https://capgo.app/agents/?ref=plugin_incoming_call_kit) · [Hosted MCP](https://capgo.app/docs/ai/mcp/?ref=plugin_incoming_call_kit)
@@ -566,7 +565,9 @@ Supported incoming call states.
 
 Construct a type with a set of properties K of type T
 
-<code>{ [P in K]: T; }</code>
+<code>{
+ [P in K]: T;
+ }</code>
 
 
 #### PermissionState
